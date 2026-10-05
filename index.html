@@ -816,7 +816,6 @@ async function submitLead(event) {
 
   event.preventDefault();
 
-
   const form =
     document.getElementById("leadForm");
 
@@ -828,7 +827,6 @@ async function submitLead(event) {
 
   const errorMessage =
     document.getElementById("errorMessage");
-
 
   const name =
     document.getElementById("name").value.trim();
@@ -854,7 +852,7 @@ async function submitLead(event) {
 
   button.disabled = true;
 
-  button.textContent = "Sending...";
+  button.textContent = "Opening Demo...";
 
   errorMessage.style.display = "none";
 
@@ -872,7 +870,7 @@ async function submitLead(event) {
 
   try {
 
-    await fetch(
+    fetch(
       GOOGLE_SCRIPT_URL,
       {
         method: "POST",
@@ -906,7 +904,7 @@ async function submitLead(event) {
 
       window.location.href = LIVE_CHATBOT_URL;
 
-    }, 1200);
+    }, 800);
 
 
   } catch (error) {
@@ -924,7 +922,3 @@ async function submitLead(event) {
 
 }
 
-</script>
-
-</body>
-</html>
