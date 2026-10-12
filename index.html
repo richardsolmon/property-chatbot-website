@@ -870,15 +870,17 @@ async function submitLead(event) {
 
   try {
 
-    // Send the lead details before navigating away from this page.
-    await fetch(
+    fetch(
       GOOGLE_SCRIPT_URL,
       {
         method: "POST",
+
         mode: "no-cors",
+
         headers: {
           "Content-Type": "text/plain;charset=utf-8"
         },
+
         body: JSON.stringify(leadData)
       }
     );
@@ -889,7 +891,9 @@ async function submitLead(event) {
         "label, input, button, .form-note"
       )
       .forEach(function(element) {
+
         element.style.display = "none";
+
       });
 
 
@@ -897,8 +901,10 @@ async function submitLead(event) {
 
 
     setTimeout(function() {
-      window.location.assign(LIVE_CHATBOT_URL);
-    }, 1200);
+
+      window.location.href = LIVE_CHATBOT_URL;
+
+    }, 800);
 
 
   } catch (error) {
@@ -915,3 +921,5 @@ async function submitLead(event) {
   }
 
 }
+
+
